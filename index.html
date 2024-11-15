@@ -82,6 +82,7 @@
     <div class="button-container">
       <button id="downloadExcel">Téléchargez Excel</button>
       <button id="takeScreenshot">Téléchargez Image</button>
+      <button onclick="copyLink()">Copier le lien</button>
     </div>
     <h3>EFFECTIF F20</h3>
     <!-- Table -->
@@ -95,6 +96,17 @@
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas/dist/html2canvas.min.js"></script>
     <script>
+      function copyLink() {
+            
+            const currentURL = window.location.href;
+
+            
+            navigator.clipboard.writeText(currentURL).then(() => {
+                alert("Le lien a été copié avec succès !");
+            }).catch((err) => {
+                alert("Une erreur s'est produite lors de la copie du lien: " + err);
+            });
+        }
       let data = [];
 
       function loadData() {
